@@ -12,7 +12,7 @@ git@github.com:sruthi-ganji/Cypress_Cucumber_framework_test.git
 
 ## How to Run:
 
-1. npm install cypress
+1. npm install 
    -> installs all missing libraries and files, node modules etc.
 2. Open terminal
 
