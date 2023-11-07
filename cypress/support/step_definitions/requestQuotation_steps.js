@@ -26,7 +26,7 @@ When('I fill the required Fields', () => {
 When('I click on the request Quotation button', () => {
   cy.get('[value="Save Quotation"]').click();
 })
-Then('I Should see a confirmation message for quest quotation', () => {
+Then('I Should see a identification number for request quotation', () => {
 
   return cy.get('body')
     .invoke('prop', 'childNodes')
@@ -34,13 +34,12 @@ Then('I Should see a confirmation message for quest quotation', () => {
       if (childNodes && childNodes[3] && childNodes[3].data) {
         const dataValue = childNodes[3].data;
         cy.log(`The 'data' property value is: ${dataValue}`);
-        return cy.setIdentificationNumber(dataValue)
-          .then(() => {
-            cy.log(`Set identificationNumber: ${Cypress.env('identificationNumber')}`);
-          });
-      } else {
-        cy.log('The data property value was not found.');
-      }
+      cy.fixture('testData.json').then((data) => {
+            data.identificationNumber = dataValue
+            cy.log(data.identificationNumber)
+            cy.writeFile('cypress/fixtures/data.json', data);
+      })   
+    }
     })
 
 })

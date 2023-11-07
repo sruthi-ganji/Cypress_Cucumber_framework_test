@@ -36,11 +36,3 @@ Cypress.Commands.add('customLogin', (email, password) => {
     cy.get('#password').type(password);
     cy.get('input[type="submit"]').click();
   });
-
-  Cypress.Commands.add('setIdentificationNumber', (value) => {
-    Cypress.env('identificationNumber', value);
-  });
-  
-  Cypress.Commands.add('getIdentificationNumber', () => {
-    return Cypress.env('identificationNumber');
-  });

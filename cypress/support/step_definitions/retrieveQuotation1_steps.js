@@ -13,16 +13,10 @@ When('I navigate to the Quotation retrieval page',() => {
 
 When('I type identification number for quotation retrieval',() => {
     cy.log('Before retrieving identificationNumber');
-    return cy.getIdentificationNumber().then((identificationNumber) => {
-      cy.log(`Retrieved identificationNumber: ${identificationNumber}`);
-      
-      if (identificationNumber) {
-        cy.log('Before typing');
+    cy.fixture('data.json').then((data) => {
+        cy.log(`Retrieved identificationNumber: ${data.identificationNumber}`);
+        const identificationNumber = data.identificationNumber;
         cy.get('form > [type="text"]').type(identificationNumber);
-        cy.log('After typing');
-      } else {
-        cy.log('Identification number is not available.');
-      }
     });
 })
 
