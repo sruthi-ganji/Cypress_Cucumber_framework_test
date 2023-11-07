@@ -6,4 +6,4 @@ Feature: Request Quotation
         When I navigate to request Quotation Page
         And I fill the required Fields
         And I click on the request Quotation button
-        Then I Should see a confirmation message for quest quotation
+        Then I Should see a identification number for request quotation
